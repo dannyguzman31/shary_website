@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 ::selection {
   background-color: #9d80cb;
   color: #fff;
@@ -53,3 +55,4 @@
     background: #9d80cb;
   }
 }
+
