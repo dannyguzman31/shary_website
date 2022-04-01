@@ -1,18 +1,18 @@
 (function ($) {
   'use strict';
-  var RYAN = {};
+  var page = {};
 
   /*--------------------
       * Pre Load
     ----------------------*/
-  RYAN.WebLoad = function () {
+  page.WebLoad = function () {
     document.getElementById('loading').style.display = 'none';
   };
 
   /*--------------------
         * Header Class
     ----------------------*/
-  RYAN.HeaderSticky = function () {
+  page.HeaderSticky = function () {
     $('.navbar-toggler').on('click', function (a) {
       a.preventDefault(), $('.navbar').addClass('fixed-header');
     });
@@ -21,7 +21,7 @@
   /*--------------------
         * Menu Close
     ----------------------*/
-  RYAN.MenuClose = function () {
+  page.MenuClose = function () {
     $('.navbar-nav .nav-link').on('click', function () {
       var toggle = $('.navbar-toggler').is(':visible');
       if (toggle) {
@@ -33,7 +33,7 @@
   /*--------------------
         * Smooth Scroll
     ----------------------*/
-  RYAN.HeaderScroll = function () {
+  page.HeaderScroll = function () {
     $('a[href*="#"]:not([href="#"])').on('click', function () {
       if (
         location.pathname.replace(/^\//, '') ==
@@ -60,7 +60,7 @@
   /*--------------------
         * Header Fixed
     ----------------------*/
-  RYAN.HeaderFixed = function () {
+  page.HeaderFixed = function () {
     if ($(window).scrollTop() >= 60) {
       $('.navbar').addClass('fixed-header');
     } else {
@@ -71,7 +71,7 @@
   /*--------------------
         * Progress Bar 
     ----------------------*/
-  RYAN.ProgressBar = function () {
+  page.ProgressBar = function () {
     $('.progress .progress-bar').each(function () {
       var bottom_object = $(this).offset().top + $(this).outerHeight();
       var bottom_window = $(window).scrollTop() + $(window).height();
@@ -88,7 +88,7 @@
     * Counter JS
     ----------------------*/
   var a = 0;
-  RYAN.Counter = function () {
+  page.Counter = function () {
     var oTop = $('.counter-box').offset().top - window.innerHeight;
     if (a == 0 && $(window).scrollTop() > oTop) {
       $('.count').each(function () {
@@ -114,7 +114,7 @@
   /*--------------------
     * Isotope
     ----------------------*/
-  RYAN.MasoNry = function () {
+  page.MasoNry = function () {
     var portfolioWork = $('.portfolio-content');
     $(portfolioWork).isotope({
       resizable: false,
@@ -138,7 +138,7 @@
   /*--------------------
     * owl Slider
     ----------------------*/
-  RYAN.BlogSlider = function () {
+  page.BlogSlider = function () {
     var testimonials_slider = $('#blog-slider-single');
     testimonials_slider.owlCarousel({
       loop: true,
@@ -161,7 +161,7 @@
     });
   };
 
-  RYAN.ClientSlider = function () {
+  page.ClientSlider = function () {
     var testimonials_slider = $('#client-slider-single');
     testimonials_slider.owlCarousel({
       loop: true,
@@ -187,7 +187,7 @@
     });
   };
 
-  RYAN.PopupVideo = function () {
+  page.PopupVideo = function () {
     $('.popup-video').magnificPopup({
       disableOn: 700,
       type: 'iframe',
@@ -198,7 +198,7 @@
     });
   };
 
-  RYAN.LightboxGallery = function () {
+  page.LightboxGallery = function () {
     $('.portfolio-content').magnificPopup({
       delegate: '.lightbox-gallery',
       type: 'image',
@@ -216,23 +216,23 @@
 
   // Window on Load
   $(window).on('load', function () {
-    RYAN.WebLoad();
+    page.WebLoad();
   });
 
   $(document).on('ready', function () {
-    RYAN.MasoNry(),
-      RYAN.ClientSlider(),
-      RYAN.MenuClose(),
-      RYAN.BlogSlider(),
-      RYAN.Counter(),
-      RYAN.ProgressBar(),
-      RYAN.HeaderScroll(),
-      RYAN.PopupVideo(),
-      RYAN.LightboxGallery(),
-      RYAN.HeaderSticky();
+    page.MasoNry(),
+      page.ClientSlider(),
+      page.MenuClose(),
+      page.BlogSlider(),
+      page.Counter(),
+      page.ProgressBar(),
+      page.HeaderScroll(),
+      page.PopupVideo(),
+      page.LightboxGallery(),
+      page.HeaderSticky();
   });
 
   $(window).on('scroll', function () {
-    RYAN.Counter(), RYAN.ProgressBar(), RYAN.HeaderFixed();
+    page.Counter(), page.ProgressBar(), page.HeaderFixed();
   });
 })(jQuery);
